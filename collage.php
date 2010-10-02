@@ -8,9 +8,7 @@ Author: Patrick Carey
 Author URI: http://www.immaterial-labour.com
 License: GPL2
 */
-?>
-
-<?php
+?><?php
 /*  Copyright 2010  Patrick Carey  (email : patrickcar@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -26,4 +24,93 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+?><?php
+
+	function collage($a = -1, $b = 'large') {
+		
+		
+		$args = array(
+			
+			
+			'post_type' => 'attachment',
+			
+			//Defines the number of images to return
+			
+			'numberposts' => $a,
+			
+			);
+			
+		print '<div class="entrycat"> 
+
+
+				<div class="img-container">';
+		
+		$c_posts = get_posts($args);
+		
+		
+		
+		
+		foreach($c_posts as $post){
+		
+		print '<div class="img-frame">';
+		
+		
+			
+		print wp_get_attachment_image( $post->ID, $b );
+		
+			
+		
+		print '</div>';
+			
+		}
+		
+	
+		print '</div>
+		
+				</div>
+		';
+		
+		
+		
+		
+		
+		print plugins_url('collage.css');
+		
+		
+		
+		
+		
+		
+	}
+
+
+add_shortcode('collage', 'collage');
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
