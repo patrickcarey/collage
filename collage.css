@@ -2,21 +2,18 @@
 	 
 	width: 100px; 
 	height:10px; 
- 
+ 	width:100px;
+	
 	float: left; 
 	display: inline; 
 	margin-top: 10px; 
-	opacity: .8;
-	border:5px solid #ff0;
+	opacity: .65;
 	
 	}
 	
 	.entrycat { 
-	margin-top : 150px;
 	margin-bottom : 0px; 	
 	padding : 0px;
-	
-	width: 600px;
 	margin-right: auto;
 	margin-left: auto;
 	}

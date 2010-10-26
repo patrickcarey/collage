@@ -29,6 +29,10 @@ License: GPL2
 	function collage($a = -1, $b = 'large') {
 		
 		
+		
+		$rand_width = rand(40,450);
+		
+		$rand_margin = rand(0,100);
 		$args = array(
 			
 			
@@ -38,9 +42,11 @@ License: GPL2
 			
 			'numberposts' => $a,
 			
+			'orderby' => rand,
+			
 			);
 			
-		print '<div class="entrycat"> 
+		print '<div class="entrycat" style="width:'. $rand_width .'px; "> 
 
 
 				<div class="img-container">';
@@ -52,7 +58,7 @@ License: GPL2
 		
 		foreach($c_posts as $post){
 		
-		print '<div class="img-frame">';
+		print '<div class="img-frame" style="margin-top:'. $rand_margin .'px;">';
 		
 		
 			
@@ -74,7 +80,6 @@ License: GPL2
 		
 		
 		
-		print plugins_url('collage.css');
 		
 		
 		
@@ -82,14 +87,43 @@ License: GPL2
 		
 		
 	}
+	
+	
+	add_action('wp_print_styles', 'add_my_stylesheet');
+
+   /*
+    * Enqueue style-file, if it exists.
+    */
+
+   function add_my_stylesheet() {
+       $myStyleUrl = WP_PLUGIN_URL . '/collage/collage.css';
+       $myStyleFile = WP_PLUGIN_DIR . '/collage/collage.css';
+       if ( file_exists($myStyleFile) ) {
+           wp_register_style('myStyleSheets', $myStyleUrl);
+           wp_enqueue_style( 'myStyleSheets');
+       }
+   }
 
 
-add_shortcode('collage', 'collage');
+function make_collage($atts){
+	
+	extract(shortcode_atts(array(
+			'number' => '',
+			'size' => '',
+		), $atts)); 
+	
+	return collage($atts['number'], $atts['size']);
+	
+}
+
+
+add_shortcode('makecollage', 'make_collage');
 
 
 
 
 	
+
 
 
 
