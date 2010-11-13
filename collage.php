@@ -32,7 +32,6 @@ License: GPL2
 		
 		$rand_width = rand(40,450);
 		
-		$rand_margin = rand(0,100);
 		$args = array(
 			
 			
@@ -58,11 +57,16 @@ License: GPL2
 		
 		foreach($c_posts as $post){
 		
-		print '<div class="img-frame" >';
+		print '<div class="img-frame">';
+		
+		$rand_margin = rand(0,100);
 		
 		
+		$collage_image = wp_get_attachment_image_src($post->ID, $b);
+		
+		print '<img src="' . $collage_image[0] . '" alt="collaged images" style="margin:'. $rand_margin .'px;" />';
 			
-		print wp_get_attachment_image( $post->ID, $b );
+		#print wp_get_attachment_image( $post->ID, $b );
 		
 			
 		
@@ -89,13 +93,13 @@ License: GPL2
 	}
 	
 	
-	add_action('wp_print_styles', 'add_my_stylesheet');
+	add_action('wp_print_styles', 'collage_stylesheet');
 
    /*
     * Enqueue style-file, if it exists.
     */
 
-   function add_my_stylesheet() {
+   function collage_stylesheet() {
        $myStyleUrl = WP_PLUGIN_URL . '/collage/collage.css';
        $myStyleFile = WP_PLUGIN_DIR . '/collage/collage.css';
        if ( file_exists($myStyleFile) ) {
