@@ -46,10 +46,10 @@ License: GPL2
 			
 			);
 			
-		print '<div class="entrycat" style="width:'. $rand_width .'px; "> 
+		print '<div class="entrycat" style="width:'. $rand_width .'px; float:left; "> 
 
 
-				<div class="img-container">';
+				<div class="img-container" style="float:left;">';
 		
 		$c_posts = get_posts($args);
 		
@@ -58,7 +58,7 @@ License: GPL2
 		
 		foreach($c_posts as $post){
 		
-		print '<div class="img-frame" style="margin-top:'. $rand_margin .'px;">';
+		print '<div class="img-frame" >';
 		
 		
 			
