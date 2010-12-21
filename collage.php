@@ -45,7 +45,7 @@ License: GPL2
 			
 			);
 			
-		print '<div class="entrycat" style="width:'. $rand_width .'px; float:left; "> 
+		print '<div class="entrycat" style="width:'. $rand_width .'px; float:left; ">  
 
 
 				<div class="img-container" style="float:left;">';
@@ -59,12 +59,14 @@ License: GPL2
 		
 		print '<div class="img-frame">';
 		
-		$rand_margin = rand(0,100);
+		$rand_margin = rand(50,400);
+		
+		$rand_radius = rand(0,1000);
 		
 		
 		$collage_image = wp_get_attachment_image_src($post->ID, $b);
 		
-		print '<img src="' . $collage_image[0] . '" alt="collaged images" style="margin:'. $rand_margin .'px;" />';
+		print '<img src="' . $collage_image[0] . '" alt="collaged images" style=" margin-right:'. $rand_margin .'px; margin-left:'. $rand_margin .'px; border-radius:'. $rand_radius .'px;" />';
 			
 		#print wp_get_attachment_image( $post->ID, $b );
 		
@@ -122,33 +124,4 @@ function make_collage($atts){
 
 
 add_shortcode('makecollage', 'make_collage');
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
+	?>
