@@ -11,9 +11,34 @@
 	
 	}
 	
+	.img-frame-bg { 
+
+		height:100px;
+	 	width:600px;
+		overflow:hidden;
+		opacity: .65;
+		margin-top:-50px;
+
+		}
+	
 	.entrycat { 
+	
 	margin-bottom : 0px; 	
 	padding : 0px;
 	margin-right: auto;
 	margin-left: auto;
 	}
+	
+	#collage{
+		margin-top:50px;
+		width:100%;
+		min-height:400px;
+		float:left;
+		overflow:hidden;
+		
+		
+		
+	}
+	
+
+
