@@ -32,7 +32,7 @@ License: GPL2
 	* @param int $number , number of images to return, -1 returns all, default is -1
 	* @param string $size , 'thumbnail', 'medium', 'large', default is medium
 	* @param string $layout accepts either 'overlap' or 'block' for how collage displays, default is 'overlap.
-	*
+	
 	**/
 	
 	
